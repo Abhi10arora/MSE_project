@@ -5,7 +5,7 @@ int main()
   FILE *f;
   f = fopen("output.txt", "w");
   int nx = 100;
-  float dx = 1.0, temp, temp1, flag, count = 100.0;
+  float dx = 1.0, temp, temp1, flag, count = 1000.0;
   float c[nx], dt = 0.25, D = 1.0, t = 1000.0;
 
   for(int i=0; i<nx; i++)
@@ -41,10 +41,11 @@ int main()
     {
       for(int j=0; j<nx; j++)
       {
-        fprintf(f, "%f ", c[j]);
+        fprintf(f, "%f", c[j]);
+        fprintf(f, "\n");
       }
-      fprintf(f, "\n \n");
-      count = count + 100;
+      // fprintf(f, "\n \n");
+      // count = count + 100;
     }
   }
 
