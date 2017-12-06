@@ -13,10 +13,10 @@ int main()
   {
     for(y=0; y<ny; y++)
     {
-      if(x<(0.25*nx) || x>(0.75*nx))
-      eta[x][y] = 0;
-      else
+      if(((x-nx/2)*(x-nx/2) + (y-ny/2)*(y-ny/2)) <= 625)
       eta[x][y] = 1;
+      else
+      eta[x][y] = 0;
     }
   }
 
