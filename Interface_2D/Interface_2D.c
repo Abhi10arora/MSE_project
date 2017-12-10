@@ -46,7 +46,7 @@ int main()
       {
         for(y=0; y<ny; y++)
         {
-          fprintf(f,"%f ", eta[x][y]);
+          fprintf(f,"%f\n", eta[x][y]);
         }
         fprintf(f,"\n");
       }
