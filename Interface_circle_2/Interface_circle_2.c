@@ -86,6 +86,7 @@ int main()
         }
         fprintf(f,"\n");
       }
+      fprintf(f,"\n");
       print_time = print_time + 50;
     }
   }

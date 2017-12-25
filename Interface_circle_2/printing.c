@@ -7,7 +7,7 @@ int main()
   f = fopen("output", "r");
   area = fopen("area", "w");
 
-  int i, n = 10, nx = 100, ny = 100, x, y, count = 0;
+  int i, n = 32, nx = 100, ny = 100, x, y, count = 0;
   float temp, per = 0;
   double eta[nx][ny];
   char s = '1';
