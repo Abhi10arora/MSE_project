@@ -54,12 +54,12 @@ int main()
         if((16*count) > 1)
         {
           temp = 1;
-          fprintf(fp, "%d\n", temp);
+          fprintf(fp, "%d ", temp);
         }
         else
         {
           temp = 0;
-          fprintf(fp, "%d\n", temp);
+          fprintf(fp, "%d ", temp);
         }
         count = 0;
       }
