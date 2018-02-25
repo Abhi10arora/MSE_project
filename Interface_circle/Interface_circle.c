@@ -5,10 +5,10 @@ int main()
   FILE *f;
   f = fopen("output.txt", "w");
 
-  int nx = 100, ny = 100, x, y, t, total_time = 1600, count = 0, print_time = 50;
+  int nx = 100, ny = 100, x, y, t, total_time = 16000, count = 0, print_time = 50;
   float dx = 1.0, dy = 1.0, temp = 0, temp1 = 0, eta_1[ny];
   double per;
-  float eta[nx+1][ny+1], dt = 0.1, A = 1.0, L = 1.0, K = 1.0;
+  float eta[nx+1][ny+1], dt = 0.001, A = 1.0, L = 1.0, K = 1.0, P = 100.0;
 
   for(x=0; x<nx; x++)
   {
@@ -36,7 +36,7 @@ int main()
       for(y = 0; y<ny; y++)
       {
         temp1 = eta[x][y];
-        eta[x][y] =  -2*A*L*dt*eta[x][y]*(1-eta[x][y])*(1-2*eta[x][y]) + eta[x][y] + (2*K*L*dt*(eta[x+1][y]-2*eta[x][y]+eta_1[y]))/(dx*dx) + (2*K*L*dt*(eta[x][y+1]-2*eta[x][y]+temp))/(dy*dy);
+        eta[x][y] =  -2*A*L*dt*eta[x][y]*(1-eta[x][y])*(1-2*eta[x][y]) + eta[x][y] + (2*(1 + 4*P*eta[x][y]*eta[x][y]*(1-eta[x][y])*(1-eta[x][y]))*L*dt*(eta[x+1][y]-2*eta[x][y]+eta_1[y]))/(dx*dx) + (2*(1 + 4*P*eta[x][y]*eta[x][y]*(1-eta[x][y])*(1-eta[x][y]))*L*dt*(eta[x][y+1]-2*eta[x][y]+temp))/(dy*dy);
         temp = temp1;
         eta_1[y] = temp1;
       }
